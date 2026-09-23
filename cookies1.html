@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Our Cookies | CookieBliss 🍪
+    </title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fff8f0;
+            color: #4b2e1f;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .page-header {
+            padding: 85px 20px 75px;
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff0d9,
+                    #ffdca8
+                );
+        }
+
+        .header-tag {
+            display: inline-block;
+
+            background: #5a321f;
+            color: white;
+
+            padding: 8px 16px;
+
+            border-radius: 30px;
+
+            font-size: 11px;
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 15px;
+        }
+
+        .page-header h1 {
+            font-size: clamp(40px,6vw,62px);
+            margin-bottom: 15px;
+        }
+
+        .page-header h1 span {
+            color: #c96b27;
+        }
+
+        .page-header p {
+            color: #704936;
+            font-size: 17px;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 55px 20px 25px;
+        }
+
+        .intro h2 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .intro p {
+            color: #80604e;
+        }
+
+        .section {
+            padding: 35px 7% 80px;
+        }
+
+        .products {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 28px;
+        }
+
+        .card {
+            background: white;
+
+            border-radius: 24px;
+
+            overflow: hidden;
+
+            border: 1px solid #f0ded0;
+
+            box-shadow:
+                0 8px 25px
+                rgba(75,46,31,.08);
+
+            transition: .35s;
+        }
+
+        .card:hover {
+            transform: translateY(-9px);
+            box-shadow:
+                0 20px 40px
+                rgba(75,46,31,.15);
+        }
+
+        .card-image {
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .card:hover img {
+            transform: scale(1.06);
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            background: #5a321f;
+            color: white;
+
+            font-size: 11px;
+            font-weight: bold;
+
+            z-index: 2;
+        }
+
+        .badge.new {
+            background: #c96b27;
+        }
+
+        .badge.favorite {
+            background: #8c5b3d;
+        }
+
+        .card-content {
+            padding: 24px;
+        }
+
+        .card-content h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .card-content p {
+            color: #80604e;
+            line-height: 1.6;
+            min-height: 50px;
+            margin-bottom: 18px;
+        }
+
+        .card-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            color: #c96b27;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .btn {
+            border: none;
+            padding: 11px 17px;
+            border-radius: 25px;
+
+            background: #c96b27;
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #9f4d18;
+        }
+
+        .special {
+            max-width: 1200px;
+            margin: 20px auto 70px;
+
+            padding: 45px;
+
+            border-radius: 28px;
+
+            background: #5a321f;
+            color: white;
+
+            text-align: center;
+        }
+
+        .special h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .special p {
+            max-width: 700px;
+            margin: auto;
+            color: #f5dfce;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .cart-button {
+            position: fixed;
+
+            right: 20px;
+            top: 20px;
+
+            z-index: 50;
+
+            background: #ffc66d;
+            color: #4b2e1f;
+
+            border: none;
+
+            padding: 12px 18px;
+
+            border-radius: 25px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        #cartPanel {
+            position: fixed;
+
+            top: 0;
+            right: -380px;
+
+            width: 350px;
+            height: 100vh;
+
+            background: white;
+
+            z-index: 100;
+
+            box-shadow:
+                -10px 0 30px
+                rgba(0,0,0,.18);
+
+            padding: 30px;
+
+            transition: .4s;
+
+            overflow-y: auto;
+        }
+
+        #cartPanel.open {
+            right: 0;
+        }
+
+        #cartPanel h2 {
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #ead8ca;
+
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .close-cart {
+            border: none;
+            background: #5a321f;
+            color: white;
+
+            padding: 8px 14px;
+
+            border-radius: 20px;
+
+            cursor: pointer;
+
+            margin-bottom: 20px;
+        }
+
+        .hover-word {
+            display: inline-block;
+
+            transition:
+                transform .25s ease,
+                color .25s ease,
+                text-shadow .25s ease;
+        }
+
+        .hover-word:hover {
+            color: #c96b27;
+
+            transform:
+                translateY(-5px)
+                scale(1.18)
+                rotate(-3deg);
+
+            text-shadow:
+                0 6px 14px
+                rgba(201,107,39,.35);
+        }
+
+        @media(max-width:900px) {
+
+            .products {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+        }
+
+        @media(max-width:600px) {
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            #cartPanel {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <section class="page-header">
+
+        <div class="header-tag">
+            FRESH FROM THE OVEN
+        </div>
+
+        <h1>
+            Pick Your
+            <span>Perfect Treat</span> 🍪
+        </h1>
+
+        <p>
+            Freshly baked flavors made to brighten your day.
+        </p>
+
+    </section>
+
+
+    <section class="intro">
+
+        <h2>
+            Something for Everyone
+        </h2>
+
+        <p>
+            From sweet treats to freshly baked favorites,
+            find something delicious for everyone.
+        </p>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="products">
+
+
+            <div class="card">
+
+                <div class="card-image">
+
+                    <div class="badge favorite">
+                        BEST SELLER
+                    </div>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1575377427642-087cf684f04d?auto=format&fit=crop&w=800&q=80"
+                        alt="Oreo Pops">
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        Oreo Pops
+                    </h3>
+
+                    <p>
+                        Crunchy Oreo cookies dipped in a sweet
+                        coating and served on a stick.
+                    </p>
+
+                    <div class="card-bottom">
+
+                        <div class="price">
+                            Rs6.99
+                        </div>
+
+                        <button
+                            class="btn"
+                            onclick="addToCart('Oreo Pops')">
+
+                            Add +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-image">
+
+                    <div class="badge favorite">
+                        FAVORITE
+                    </div>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80"
+                        alt="Brookies">
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        Brookies
+                    </h3>
+
+                    <p>
+                        The perfect mix of a fudgy brownie
+                        and a soft, chewy cookie.
+                    </p>
+
+                    <div class="card-bottom">
+
+                        <div class="price">
+                            Rs8.49
+                        </div>
+
+                        <button
+                            class="btn"
+                            onclick="addToCart('Brookies')">
+
+                            Add +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-image">
+
+                    <div class="badge new">
+                        NEW
+                    </div>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=800&q=80"
+                        alt="Japanese Kiwi Sandos">
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        Japanese Kiwi Sandos
+                    </h3>
+
+                    <p>
+                        Soft, fluffy bread layered with creamy
+                        filling and fresh kiwi slices.
+                    </p>
+
+                    <div class="card-bottom">
+
+                        <div class="price">
+                            Rs7.99
+                        </div>
+
+                        <button
+                            class="btn"
+                            onclick="addToCart('Japanese Kiwi Sandos')">
+
+                            Add +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-image">
+
+                    <div class="badge">
+                        CHOCOLATE
+                    </div>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&w=800&q=80"
+                        alt="Chocolate Cake Pops">
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        Chocolate Cake Pops
+                    </h3>
+
+                    <p>
+                        Moist chocolate cake covered in
+                        a smooth chocolate coating.
+                    </p>
+
+                    <div class="card-bottom">
+
+                        <div class="price">
+                            Rs5.99
+                        </div>
+
+                        <button
+                            class="btn"
+                            onclick="addToCart('Chocolate Cake Pops')">
+
+                            Add +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-image">
+
+                    <div class="badge new">
+                        STRAWBERRY
+                    </div>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=800&q=80"
+                        alt="Strawberry Cake Pops">
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        Strawberry Cake Pops
+                    </h3>
+
+                    <p>
+                        Sweet strawberry cake bites finished
+                        with a delicious creamy coating.
+                    </p>
+
+                    <div class="card-bottom">
+
+                        <div class="price">
+                            Rs5.99
+                        </div>
+
+                        <button
+                            class="btn"
+                            onclick="addToCart('Strawberry Cake Pops')">
+
+                            Add +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-image">
+
+                    <div class="badge favorite">
+                        CLASSIC
+                    </div>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=800&q=80"
+                        alt="Banana Bread">
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        Banana Bread
+                    </h3>
+
+                    <p>
+                        Soft, moist banana bread with
+                        a warm homemade flavor.
+                    </p>
+
+                    <div class="card-bottom">
+
+                        <div class="price">
+                            Rs6.99
+                        </div>
+
+                        <button
+                            class="btn"
+                            onclick="addToCart('Banana Bread')">
+
+                            Add +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-image">
+
+                    <div class="badge favorite">
+                        FAVORITE
+                    </div>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=800&q=80"
+                        alt="Cinnamon Rolls">
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        Cinnamon Rolls
+                    </h3>
+
+                    <p>
+                        Soft swirls of cinnamon goodness
+                        with a sweet, comforting finish.
+                    </p>
+
+                    <div class="card-bottom">
+
+                        <div class="price">
+                            Rs7.49
+                        </div>
+
+                        <button
+                            class="btn"
+                            onclick="addToCart('Cinnamon Rolls')">
+
+                            Add +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-image">
+
+                    <div class="badge">
+                        CLASSIC
+                    </div>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80"
+                        alt="Sugar Cookies">
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        Sugar Cookies
+                    </h3>
+
+                    <p>
+                        Soft, buttery sugar cookies
+                        with a simple sweet flavor.
+                    </p>
+
+                    <div class="card-bottom">
+
+                        <div class="price">
+                            Rs6.49
+                        </div>
+
+                        <button
+                            class="btn"
+                            onclick="addToCart('Sugar Cookies')">
+
+                            Add +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <section class="special">
+
+        <h2>
+            Every Cookie Has a Purpose 🇳🇵
+        </h2>
+
+        <p>
+            CookieBliss combines baking with a fundraising mission.
+            Every order helps us move toward our goal of supporting
+            people affected by floods in Nepal.
+        </p>
+
+        <button
+            class="btn"
+            onclick="cbNav('about')">
+
+            Learn More
+
+        </button>
+
+    </section>
+
+
+    <button
+        class="cart-button"
+        onclick="toggleCart()">
+
+        🛒 Cart
+        (<span id="cartCount">0</span>)
+
+    </button>
+
+
+    <div id="cartPanel">
+
+        <button
+            class="close-cart"
+            onclick="toggleCart()">
+
+            Close
+
+        </button>
+
+        <h2>
+            Your Cart 🍪
+        </h2>
+
+        <div id="cartItems">
+            Your cart is empty.
+        </div>
+
+    </div>
+
+
+    <script>
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        function cbNav(page) {
+
+            if (
+                window.parent !== window &&
+                typeof window.parent.CookieBlissNavigate ===
+                "function"
+            ) {
+
+                window.parent.CookieBlissNavigate(
+                    page
+                );
+
+                return false;
+
+            }
+
+            window.location.href =
+                "index.html?page=" + page;
+
+            return false;
+
+        }
+
+
+        /* =========================
+           CART
+        ========================= */
+
+        let cart = [];
+
+        function addToCart(item) {
+
+            cart.push(item);
+
+            document.getElementById(
+                "cartCount"
+            ).textContent = cart.length;
+
+            renderCart();
+
+        }
+
+
+        function renderCart() {
+
+            const container =
+                document.getElementById(
+                    "cartItems"
+                );
+
+            if (cart.length === 0) {
+
+                container.innerHTML =
+                    "Your cart is empty.";
+
+                return;
+
+            }
+
+            container.innerHTML =
+                cart.map(function(item,index) {
+
+                    return `
+                        <div class="cart-item">
+
+                            <span>
+                                Rs{item}
+                            </span>
+
+                            <button
+                                onclick="removeItem(Rs{index})">
+
+                                ×
+
+                            </button>
+
+                        </div>
+                    `;
+
+                }).join("");
+
+        }
+
+
+        function removeItem(index) {
+
+            cart.splice(index,1);
+
+            document.getElementById(
+                "cartCount"
+            ).textContent = cart.length;
+
+            renderCart();
+
+        }
+
+
+        function toggleCart() {
+
+            document
+                .getElementById("cartPanel")
+                .classList.toggle("open");
+
+        }
+
+
+        /* =========================
+           HOVER EFFECT
+        ========================= */
+
+        document
+            .querySelectorAll("p")
+            .forEach(function(paragraph) {
+
+                const words =
+                    paragraph.textContent
+                    .trim()
+                    .split(/\s+/);
+
+                paragraph.innerHTML =
+                    words.map(function(word) {
+
+                        return (
+                            '<span class="hover-word">' +
+                            word +
+                            '</span>'
+                        );
+
+                    }).join(" ");
+
+            });
+
+    </script>
+
+</body>
+
+</html>

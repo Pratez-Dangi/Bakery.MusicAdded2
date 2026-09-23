@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Contact | CookieBliss 🍪
+    </title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fff8f0;
+            color: #4b2e1f;
+        }
+
+        .page-header {
+            min-height: 390px;
+            padding: 80px 7%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff0d9,
+                    #ffdca8
+                );
+        }
+
+        .header-tag {
+            display: inline-block;
+
+            padding: 8px 16px;
+
+            background: #5a321f;
+            color: white;
+
+            border-radius: 30px;
+
+            font-size: 11px;
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 18px;
+        }
+
+        .page-header h1 {
+            font-size: clamp(42px,6vw,65px);
+            margin-bottom: 15px;
+        }
+
+        .page-header h1 span {
+            color: #c96b27;
+        }
+
+        .page-header p {
+            color: #704936;
+            font-size: 18px;
+        }
+
+        .contact-section {
+            padding: 75px 7%;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-heading .label {
+            color: #c96b27;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
+            font-size: 38px;
+            margin: 10px 0;
+        }
+
+        .section-heading p {
+            color: #80604e;
+        }
+
+        .contact-cards {
+            max-width: 1050px;
+
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+
+            gap: 25px;
+        }
+
+        .contact-card {
+            background: white;
+
+            padding: 32px 25px;
+
+            border-radius: 22px;
+
+            border: 1px solid #f0ded0;
+
+            text-align: center;
+
+            box-shadow:
+                0 8px 25px
+                rgba(75,46,31,.07);
+
+            transition: .35s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow:
+                0 18px 35px
+                rgba(75,46,31,.14);
+        }
+
+        .contact-icon {
+            width: 65px;
+            height: 65px;
+
+            margin: auto auto 18px;
+
+            border-radius: 50%;
+
+            background: #fff0d9;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 28px;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            color: #80604e;
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+
+        .contact-card a {
+            color: #c96b27;
+            font-weight: bold;
+        }
+
+        .message-section {
+            padding: 80px 7%;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffecd5,
+                    #fff8f0
+                );
+        }
+
+        .message-container {
+            max-width: 1050px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                .8fr 1.2fr;
+
+            gap: 50px;
+
+            align-items: center;
+        }
+
+        .message-info h2 {
+            font-size: 40px;
+            margin-bottom: 18px;
+        }
+
+        .message-info h2 span {
+            color: #c96b27;
+        }
+
+        .message-info p {
+            color: #704936;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .mini-note {
+            padding: 18px;
+
+            background: white;
+
+            border-left:
+                4px solid #c96b27;
+
+            border-radius: 10px;
+
+            color: #704936;
+
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(75,46,31,.1);
+
+            border: 1px solid #f0ded0;
+        }
+
+        .contact-form h3 {
+            font-size: 25px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+
+            width: 100%;
+
+            padding: 13px 15px;
+
+            border:
+                1px solid #e4cdbd;
+
+            border-radius: 10px;
+
+            background: #fffaf6;
+
+            color: #4b2e1f;
+
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .send-btn {
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: #c96b27;
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .send-btn:hover {
+            background: #9f4d18;
+        }
+
+        .relief {
+            margin: 70px auto;
+
+            max-width: 1000px;
+
+            padding: 50px 30px;
+
+            text-align: center;
+
+            background: #5a321f;
+            color: white;
+
+            border-radius: 30px;
+        }
+
+        .relief h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .relief p {
+            max-width: 750px;
+
+            margin:
+                0 auto 25px;
+
+            color: #f5dfce;
+
+            line-height: 1.7;
+        }
+
+        .relief-btn {
+            display: inline-block;
+
+            padding: 13px 24px;
+
+            background: #ffc66d;
+            color: #4b2e1f;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+        }
+
+        #success-message {
+
+            display: none;
+
+            position: fixed;
+
+            bottom: 25px;
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            background: #5a321f;
+
+            color: white;
+
+            padding: 15px 25px;
+
+            border-radius: 30px;
+
+            z-index: 100;
+        }
+
+        footer {
+            background: #321a10;
+            color: white;
+
+            text-align: center;
+
+            padding: 40px 20px;
+        }
+
+        footer p {
+            color: #e9cfc0;
+            margin: 7px;
+        }
+
+        .socials {
+            margin-top: 18px;
+        }
+
+        .socials a {
+            color: #ffc66d;
+            margin: 0 10px;
+        }
+
+        .hover-word {
+            display: inline-block;
+
+            transition:
+                transform .25s ease,
+                color .25s ease,
+                text-shadow .25s ease;
+        }
+
+        .hover-word:hover {
+            color: #c96b27;
+
+            transform:
+                translateY(-5px)
+                scale(1.18)
+                rotate(-3deg);
+
+            text-shadow:
+                0 6px 14px
+                rgba(201,107,39,.35);
+        }
+
+        @media(max-width:850px) {
+
+            .contact-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .message-container {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <section class="page-header">
+
+        <div>
+
+            <div class="header-tag">
+                WE'D LOVE TO HEAR FROM YOU
+            </div>
+
+            <h1>
+                Let's
+                <span>Talk</span> 🍪
+            </h1>
+
+            <p>
+                Have a question, want to place an order,
+                or simply want to say hello?
+                We'd love to hear from you.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="contact-section">
+
+        <div class="section-heading">
+
+            <div class="label">
+                GET IN TOUCH
+            </div>
+
+            <h2>
+                How Can We Help?
+            </h2>
+
+            <p>
+                Choose the easiest way to reach CookieBliss.
+            </p>
+
+        </div>
+
+
+        <div class="contact-cards">
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    ✉️
+                </div>
+
+                <h3>
+                    Email Us
+                </h3>
+
+                <p>
+                    Have a question about our cookies,
+                    orders, or our project?
+                </p>
+
+                <a href="mailto:hello@cookiebliss.com">
+                    hello@cookiebliss.com
+                </a>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📱
+                </div>
+
+                <h3>
+                    Social Media
+                </h3>
+
+                <p>
+                    Follow CookieBliss and keep up
+                    with our latest updates.
+                </p>
+
+                <a href="https://www.instagram.com/sakhi.initiative/">
+                    Follow Us →
+                </a>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    🍪
+                </div>
+
+                <h3>
+                    Cookie Orders
+                </h3>
+
+                <p>
+                    Looking for a special order
+                    or a box for an event?
+                </p>
+
+                <a href="#" onclick="return cbNav('cookies')">
+                    View Our Cookies →
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <section class="message-section">
+
+        <div class="message-container">
+
+
+            <div class="message-info">
+
+                <h2>
+                    Have Something
+                    <span>To Say?</span>
+                </h2>
+
+                <p>
+                    Whether you have a question about our
+                    cookies or simply want to learn more about
+                    CookieBliss, send us a message.
+                </p>
+
+                <div class="mini-note">
+                    🍪 We usually reply as soon as we can.
+                    Thank you for supporting our small project!
+                </div>
+
+            </div>
+
+
+            <form
+                class="contact-form"
+                id="contactForm">
+
+                <h3>
+                    Send a Message
+                </h3>
+
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="reason">
+                        What is this about?
+                    </label>
+
+                    <select id="reason">
+
+                        <option>
+                            General Question
+                        </option>
+
+                        <option>
+                            Cookie Order
+                        </option>
+
+                        <option>
+                            Special Request
+                        </option>
+
+                        <option>
+                            Fundraising Project
+                        </option>
+
+                        <option>
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="message">
+                        Your Message
+                    </label>
+
+                    <textarea
+                        id="message"
+                        required></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="send-btn">
+
+                    Send Message 🍪
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <section class="relief">
+
+        <h2>
+            A Bakery With a Bigger Purpose 🇳🇵
+        </h2>
+
+        <p>
+            CookieBliss is also a fundraising project.
+            Through our cookie sales, we aim to raise funds
+            to support people affected by floods in Nepal.
+            Every bit of support helps us move closer to our goal.
+        </p>
+
+        <a
+            href="#"
+            onclick="return cbNav('about')"
+            class="relief-btn">
+
+            Learn About Our Mission →
+
+        </a>
+
+    </section>
+
+
+    <div id="success-message">
+        ✓ Message ready to send!
+    </div>
+
+
+    <footer>
+
+        <h2>
+            CookieBliss 🍪
+        </h2>
+
+        <p>
+            Fresh cookies. Happy moments.
+        </p>
+
+        <p>
+            Email: hello@cookiebliss.com
+        </p>
+
+        <div class="socials">
+
+            <a href="https://www.instagram.com/sakhi.initiative/">
+                Instagram
+            </a>
+
+            <a href="#">
+                Facebook
+            </a>
+
+            <a href="#">
+                TikTok
+            </a>
+
+        </div>
+
+        <br>
+
+        <p>
+            © 2026 CookieBliss. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        function cbNav(page) {
+
+            if (
+                window.parent !== window &&
+                typeof window.parent.CookieBlissNavigate ===
+                "function"
+            ) {
+
+                window.parent.CookieBlissNavigate(page);
+
+                return false;
+
+            }
+
+            window.location.href =
+                "index.html?page=" + page;
+
+            return false;
+
+        }
+
+
+        document
+            .querySelectorAll("p")
+            .forEach(function(paragraph) {
+
+                const words =
+                    paragraph.textContent
+                    .trim()
+                    .split(/\s+/);
+
+                paragraph.innerHTML =
+                    words.map(function(word) {
+
+                        return (
+                            '<span class="hover-word">' +
+                            word +
+                            '</span>'
+                        );
+
+                    }).join(" ");
+
+            });
+
+
+        const form =
+            document.getElementById(
+                "contactForm"
+            );
+
+
+        form.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+                const name =
+                    document.getElementById(
+                        "name"
+                    ).value;
+
+                const email =
+                    document.getElementById(
+                        "email"
+                    ).value;
+
+                const reason =
+                    document.getElementById(
+                        "reason"
+                    ).value;
+
+                const message =
+                    document.getElementById(
+                        "message"
+                    ).value;
+
+
+                const subject =
+                    encodeURIComponent(
+                        "CookieBliss Contact: " +
+                        reason
+                    );
+
+
+                const body =
+                    encodeURIComponent(
+                        "Name: " +
+                        name +
+                        "\n\nEmail: " +
+                        email +
+                        "\n\nMessage:\n" +
+                        message
+                    );
+
+
+
+                window.location.href =
+                    "mailto:hello@cookiebliss.com" +
+                    "?subject=" +
+                    subject +
+                    "&body=" +
+                    body;
+
+
+                document.getElementById(
+                    "success-message"
+                ).style.display = "block";
+
+
+                setTimeout(function() {
+
+                    document.getElementById(
+                        "success-message"
+                    ).style.display = "none";
+
+                },4000);
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

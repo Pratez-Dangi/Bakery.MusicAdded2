@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CookieBliss | Baking for Nepal 🍪</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fff8f0;
+            color: #4b2e1f;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            width: 100%;
+            min-height: 72px;
+            padding: 14px 6%;
+            background: #5a321f;
+            color: white;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            z-index: 5000;
+
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: #ffc66d;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav a {
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 10px 2px;
+            position: relative;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 3px;
+            width: 0;
+            height: 2px;
+            background: #ffc66d;
+            transition: width .3s ease;
+        }
+
+        nav a:hover {
+            color: #ffc66d;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a.active {
+            color: #ffc66d;
+        }
+
+        nav li:last-child a {
+            background: rgba(255,198,109,.14);
+            border-radius: 20px;
+            padding: 9px 15px;
+        }
+
+        /* =========================
+           HOME
+        ========================= */
+
+        main {
+            padding-top: 72px;
+        }
+
+        .hero {
+            min-height: 650px;
+            padding: 70px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff1dc,
+                    #ffdca8
+                );
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+
+            width: 450px;
+            height: 450px;
+
+            right: -120px;
+            top: -150px;
+
+            background: #ffc66d;
+            opacity: .18;
+            border-radius: 50%;
+        }
+
+        .hero-text {
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .mission-tag {
+            display: inline-block;
+            padding: 9px 17px;
+
+            background: #5a321f;
+            color: white;
+
+            border-radius: 30px;
+
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 6vw, 70px);
+            line-height: 1.05;
+            letter-spacing: -3px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: #c96b27;
+        }
+
+        .hero p {
+            max-width: 560px;
+            color: #704936;
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 14px 27px;
+
+            border-radius: 30px;
+
+            background: #c96b27;
+            color: white;
+
+            font-weight: bold;
+
+            border: none;
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        .btn:hover {
+            background: #9f4d18;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(159,77,24,.25);
+        }
+
+        .hero-image img {
+            width: 470px;
+            max-width: 100%;
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 25px 55px rgba(75,46,31,.25);
+
+            animation: cookieFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes cookieFloat {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+        }
+
+        .mission {
+            padding: 75px 8%;
+            background: white;
+            text-align: center;
+        }
+
+        .section-label {
+            color: #c96b27;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .mission h2 {
+            font-size: 40px;
+            margin-bottom: 18px;
+        }
+
+        .mission h2 span {
+            color: #c96b27;
+        }
+
+        .mission p {
+            max-width: 750px;
+            margin: auto;
+            color: #704936;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .impact {
+            padding: 80px 8%;
+            background: linear-gradient(180deg,#fff8f0,#ffecd5);
+            text-align: center;
+        }
+
+        .impact h2 {
+            font-size: 38px;
+            margin-bottom: 40px;
+        }
+
+        .impact-container {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+        }
+
+        .impact-card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 22px;
+            border: 1px solid #f0ded0;
+            box-shadow: 0 8px 25px rgba(75,46,31,.08);
+            transition: .35s;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 35px rgba(75,46,31,.15);
+        }
+
+        .impact-icon {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .impact-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .impact-card p {
+            color: #80604e;
+            line-height: 1.6;
+        }
+
+        .featured {
+            padding: 80px 8%;
+            background: white;
+            text-align: center;
+        }
+
+        .featured h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .featured-subtitle {
+            color: #80604e;
+            margin-bottom: 40px;
+        }
+
+        .cookie-preview {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+            max-width: 1050px;
+            margin: auto;
+        }
+
+        .cookie-card {
+            background: #fff8f0;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #f0ded0;
+            transition: .3s;
+        }
+
+        .cookie-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(75,46,31,.12);
+        }
+
+        .cookie-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+
+        .cookie-card-content {
+            padding: 20px;
+        }
+
+        .cookie-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .cookie-card p {
+            color: #80604e;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            color: #c96b27;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .fundraising {
+            margin: 70px 8%;
+            padding: 60px 35px;
+
+            background: #5a321f;
+            color: white;
+
+            border-radius: 30px;
+            text-align: center;
+        }
+
+        .fundraising h2 {
+            font-size: 38px;
+            margin-bottom: 18px;
+        }
+
+        .fundraising p {
+            max-width: 700px;
+            margin: 0 auto 25px;
+            color: #f5dfce;
+            line-height: 1.7;
+        }
+
+        .fundraising .btn {
+            background: #ffc66d;
+            color: #4b2e1f;
+        }
+
+        footer {
+            background: #321a10;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            color: #e9cfc0;
+            margin: 7px;
+        }
+
+        .socials {
+            margin-top: 18px;
+        }
+
+        .socials a {
+            color: #ffc66d;
+            margin: 0 10px;
+        }
+
+        /* =========================
+           IFRAME PAGE AREA
+        ========================= */
+
+        #pageFrame {
+            display: none;
+
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            top: 72px;
+
+            width: 100%;
+            height: calc(100vh - 72px);
+
+            border: none;
+            background: #fff8f0;
+
+            z-index: 100;
+        }
+
+        body.subpage #pageFrame {
+            display: block;
+        }
+
+        body.subpage #homeContent {
+            display: none;
+        }
+
+        /* =========================
+           MUSIC PLAYER
+        ========================= */
+
+        .music-bar {
+            position: fixed;
+
+            right: 25px;
+            bottom: 25px;
+
+            z-index: 10000;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 10px;
+
+            background: rgba(90,50,31,.97);
+
+            border: 1px solid rgba(255,198,109,.35);
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 30px rgba(75,46,31,.3);
+
+            backdrop-filter: blur(8px);
+        }
+
+        .collapse-btn {
+            width: 40px;
+            height: 40px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: #ffc66d;
+
+            font-size: 19px;
+            cursor: pointer;
+        }
+
+        .collapse-btn:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        .music-panel {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            max-width: 480px;
+
+            overflow: hidden;
+
+            transition:
+                max-width .4s ease,
+                opacity .25s ease;
+        }
+
+        .music-bar.collapsed .music-panel {
+            max-width: 0;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .eq {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+
+            width: 20px;
+            height: 20px;
+        }
+
+        .eq span {
+            width: 3px;
+            height: 4px;
+
+            background: #ffc66d;
+
+            border-radius: 2px;
+
+            animation: eqBounce .9s infinite;
+            animation-play-state: paused;
+        }
+
+        .music-bar.playing .eq span {
+            animation-play-state: running;
+        }
+
+        @keyframes eqBounce {
+
+            0%,100% {
+                height: 4px;
+            }
+
+            50% {
+                height: 18px;
+            }
+
+        }
+
+        .ctrl-btn {
+            width: 32px;
+            height: 32px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: rgba(255,255,255,.12);
+            color: #ffc66d;
+
+            cursor: pointer;
+        }
+
+        .ctrl-btn:hover {
+            background: #ffc66d;
+            color: #5a321f;
+            transform: scale(1.1);
+        }
+
+        .play-btn {
+            width: 36px;
+            height: 36px;
+            background: #ffc66d;
+            color: #5a321f;
+        }
+
+        .track-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            min-width: 150px;
+        }
+
+        .music-bar select {
+            background: rgba(255,255,255,.1);
+            color: rgba(91, 29, 29, 0.658);
+
+            border: 1px solid rgba(255,198,109,.4);
+            border-radius: 10px;
+
+            padding: 5px;
+        }
+
+        .progress-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .progress-row span {
+            font-size: 10px;
+            color: #f5dfce;
+            min-width: 26px;
+            text-align: center;
+        }
+
+        .music-bar input[type="range"] {
+            accent-color: #ffc66d;
+        }
+
+        #progressSlider {
+            width: 100px;
+        }
+
+        .vol-slider {
+            width: 55px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width:900px) {
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .impact-container,
+            .cookie-preview {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width:600px) {
+
+            nav {
+                min-height: 100px;
+                flex-direction: column;
+                gap: 10px;
+                padding: 14px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px 15px;
+            }
+
+            main {
+                padding-top: 100px;
+            }
+
+            #pageFrame {
+                top: 100px;
+                height: calc(100vh - 100px);
+            }
+
+            .music-bar {
+                left: 15px;
+                right: 15px;
+                bottom: 15px;
+                justify-content: center;
+            }
+
+            .music-panel {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">
+            Cookie<span>Bliss</span> 🍪
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="index.html" data-page="home">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="cookies1.html" data-page="cookies">
+                    Cookies
+                </a>
+            </li>
+
+            <li>
+                <a href="about1.html" data-page="about">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="contact1.html" data-page="contact">
+                    Contact
+                </a>
+            </li>
+
+            <li>
+                <a href="Credits1.html" data-page="credits">
+                    Credits
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <main id="homeContent">
+
+        <section class="hero">
+
+            <div class="hero-text">
+
+                <div class="mission-tag">
+                    🇳🇵 BAKING FOR NEPAL
+                </div>
+
+                <h1>
+                    Freshly Baked
+                    <span>Happiness</span> 🍪
+                </h1>
+
+                <p>
+                    Delicious cookies baked fresh with love.
+                    CookieBliss is also a fundraising project
+                    created to help support people affected by
+                    floods in Nepal.
+                </p>
+
+                <a
+                    href="cookies1.html"
+                    class="btn"
+                    data-page="cookies">
+
+                    Explore Our Cookies
+
+                </a>
+
+            </div>
+
+            <div class="hero-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=900&q=80"
+                    alt="Fresh chocolate chip cookies">
+
+            </div>
+
+        </section>
+
+
+        <section class="mission">
+
+            <div class="section-label">
+                MORE THAN A BAKERY
+            </div>
+
+            <h2>
+                Cookies With a
+                <span>Purpose</span>
+            </h2>
+
+            <p>
+                CookieBliss combines our love for baking with
+                our goal of supporting people affected by floods
+                in Nepal. We bake, you enjoy, and together we
+                work toward making a difference.
+            </p>
+
+        </section>
+
+
+        <section class="impact">
+
+            <div class="section-label">
+                WHAT WE STAND FOR
+            </div>
+
+            <h2>
+                Small Project. Bigger Purpose.
+            </h2>
+
+            <div class="impact-container">
+
+                <div class="impact-card">
+
+                    <div class="impact-icon">
+                        🍪
+                    </div>
+
+                    <h3>Bake</h3>
+
+                    <p>
+                        Fresh cookies made with care
+                        and a whole lot of love.
+                    </p>
+
+                </div>
+
+
+                <div class="impact-card">
+
+                    <div class="impact-icon">
+                        💰
+                    </div>
+
+                    <h3>Raise</h3>
+
+                    <p>
+                        Cookie sales help us raise funds
+                        for our fundraising mission.
+                    </p>
+
+                </div>
+
+
+                <div class="impact-card">
+
+                    <div class="impact-icon">
+                        🇳🇵
+                    </div>
+
+                    <h3>Support</h3>
+
+                    <p>
+                        Our goal is to contribute toward
+                        helping flood-affected communities.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="featured">
+
+            <div class="section-label">
+                FRESH FROM THE OVEN
+            </div>
+
+            <h2>
+                A Few of Our Favorites
+            </h2>
+
+            <p class="featured-subtitle">
+                Hungry already? There's plenty more to discover.
+            </p>
+
+            <div class="cookie-preview">
+
+                <div class="cookie-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=800&q=80"
+                        alt="Chocolate chip cookies">
+
+                    <div class="cookie-card-content">
+
+                        <h3>
+                            Chocolate Chip
+                        </h3>
+
+                        <p>
+                            A classic favorite packed
+                            with chocolate chips.
+                        </p>
+
+                        <div class="price">
+                            Rs80.99
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="cookie-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=800&q=80"
+                        alt="Oatmeal cookies">
+
+                    <div class="cookie-card-content">
+
+                        <h3>
+                            Oatmeal Delight
+                        </h3>
+
+                        <p>
+                            Soft, chewy and full
+                            of homemade flavor.
+                        </p>
+
+                        <div class="price">
+                            Rs7.99
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="cookie-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1618923850107-a4c9d9f6c2c7?auto=format&fit=crop&w=800&q=80"
+                        alt="Double chocolate cookies">
+
+                    <div class="cookie-card-content">
+
+                        <h3>
+                            Double Chocolate
+                        </h3>
+
+                        <p>
+                            Rich chocolate flavor
+                            for serious chocolate lovers.
+                        </p>
+
+                        <div class="price">
+                            Rs9.99
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="fundraising">
+
+            <h2>
+                Your Treat Can Help. 🇳🇵
+            </h2>
+
+            <p>
+                Every CookieBliss order is an opportunity to
+                support our fundraising mission for people
+                affected by floods in Nepal.
+            </p>
+
+            <a
+                href="about1.html"
+                data-page="about"
+                class="btn">
+
+                Learn About Our Mission
+
+            </a>
+
+        </section>
+
+
+        <footer>
+
+            <h2>
+                CookieBliss 🍪
+            </h2>
+
+            <p>
+                Fresh cookies. Happy moments.
+            </p>
+
+            <p>
+                A little help for Nepal.
+            </p>
+
+            <p>
+                Email: hello@cookiebliss.com
+            </p>
+
+            <div class="socials">
+
+                <a href="https://www.instagram.com/sakhi.initiative/">
+                    Instagram
+                </a>
+
+                <a href="#">
+                    Facebook
+                </a>
+
+                <a href="#">
+                    TikTok
+                </a>
+
+            </div>
+
+            <br>
+
+            <p>
+                © 2026 CookieBliss. All Rights Reserved.
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <iframe
+        id="pageFrame"
+        title="CookieBliss Page">
+    </iframe>
+
+
+    <!-- MUSIC BAR -->
+
+    <div class="music-bar collapsed" id="musicBar">
+
+        <button
+            class="collapse-btn"
+            id="collapseBtn">
+
+            🍪
+
+        </button>
+
+        <div class="music-panel">
+
+            <div class="eq">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+            <button
+                class="ctrl-btn"
+                id="prevBtn">
+
+                ⏮
+
+            </button>
+
+            <button
+                class="ctrl-btn play-btn"
+                id="playPauseBtn">
+
+                ▶
+
+            </button>
+
+            <button
+                class="ctrl-btn"
+                id="nextBtn">
+
+                ⏭
+
+            </button>
+
+            <div class="track-info">
+
+                <select id="trackSelect">
+
+                    <option value="0">
+                        Kendrik
+                    </option>
+
+                    <option value="1">
+                        Kendriks
+                    </option>
+
+                    <option value="2">
+                        Lamar
+                    </option>
+
+                </select>
+
+                <div class="progress-row">
+
+                    <span id="curTime">
+                        0:00
+                    </span>
+
+                    <input
+                        id="progressSlider"
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="0"
+                        step="0.1">
+
+                    <span id="durTime">
+                        0:00
+                    </span>
+
+                </div>
+
+            </div>
+
+            <input
+                id="musicVolume"
+                class="vol-slider"
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0.5">
+
+        </div>
+
+        <audio
+            id="bgMusic"
+            preload="auto">
+        </audio>
+
+    </div>
+
+
+    <script>
+
+        /* =========================
+           PAGE NAVIGATION
+        ========================= */
+
+        const pageFrame =
+            document.getElementById("pageFrame");
+
+        const homeContent =
+            document.getElementById("homeContent");
+
+        const pageFiles = {
+
+            home: null,
+
+            cookies: "cookies1.html",
+
+            about: "about1.html",
+
+            contact: "contact1.html",
+
+            credits: "Credits1.html"
+
+        };
+
+
+        function setActivePage(page) {
+
+            document
+                .querySelectorAll("nav a[data-page]")
+                .forEach(function(link) {
+
+                    link.classList.remove("active");
+
+                    if (
+                        link.dataset.page === page
+                    ) {
+                        link.classList.add("active");
+                    }
+
+                });
+
+        }
+
+
+        function showPage(page, updateHistory = true) {
+
+            if (!pageFiles.hasOwnProperty(page)) {
+                page = "home";
+            }
+
+            setActivePage(page);
+
+            if (updateHistory) {
+
+                const newUrl =
+                    page === "home"
+                        ? "index.html"
+                        : "index.html?page=" + page;
+
+                history.pushState(
+                    { page: page },
+                    "",
+                    newUrl
+                );
+
+            }
+
+
+            if (page === "home") {
+
+                document.body.classList.remove("subpage");
+
+                pageFrame.src = "";
+
+                return;
+
+            }
+
+
+            document.body.classList.add("subpage");
+
+            pageFrame.src = pageFiles[page];
+
+        }
+
+
+        /* Make available to pages inside iframe */
+
+        window.CookieBlissNavigate =
+            function(page) {
+
+                showPage(page, true);
+
+            };
+
+
+        document
+            .querySelectorAll("a[data-page]")
+            .forEach(function(link) {
+
+                link.addEventListener(
+                    "click",
+                    function(event) {
+
+                        event.preventDefault();
+
+                        showPage(
+                            link.dataset.page,
+                            true
+                        );
+
+                    }
+                );
+
+            });
+
+
+        window.addEventListener(
+            "popstate",
+            function() {
+
+                const params =
+                    new URLSearchParams(
+                        location.search
+                    );
+
+                const page =
+                    params.get("page") || "home";
+
+                showPage(page, false);
+
+            }
+        );
+
+
+        const initialParams =
+            new URLSearchParams(
+                location.search
+            );
+
+        const initialPage =
+            initialParams.get("page") || "home";
+
+        showPage(initialPage, false);
+
+
+        /* =========================
+           PARAGRAPH HOVER EFFECT
+        ========================= */
+
+        function addHoverEffects(root) {
+
+            root.querySelectorAll(
+                "p"
+            ).forEach(function(paragraph) {
+
+                if (
+                    paragraph.dataset.hoverReady
+                ) {
+                    return;
+                }
+
+                paragraph.dataset.hoverReady =
+                    "true";
+
+                const words =
+                    paragraph.textContent
+                    .trim()
+                    .split(/\s+/);
+
+                paragraph.innerHTML =
+                    words.map(function(word) {
+
+                        return (
+                            '<span class="hover-word">' +
+                            word +
+                            '</span>'
+                        );
+
+                    }).join(" ");
+
+            });
+
+        }
+
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function() {
+
+                addHoverStyles();
+                addHoverEffects(document);
+
+            }
+        );
+
+
+        function addHoverStyles() {
+
+            const style =
+                document.createElement("style");
+
+            style.textContent = `
+
+                .hover-word {
+                    display: inline-block;
+                    transition:
+                        transform .25s ease,
+                        color .25s ease,
+                        text-shadow .25s ease;
+                    cursor: default;
+                }
+
+                .hover-word:hover {
+                    color: #c96b27;
+                    transform:
+                        translateY(-5px)
+                        scale(1.18)
+                        rotate(-3deg);
+                    text-shadow:
+                        0 6px 14px
+                        rgba(201,107,39,.35);
+                }
+
+            `;
+
+            document.head.appendChild(style);
+
+        }
+
+
+        /* =========================
+           MUSIC PLAYER
+        ========================= */
+
+        const audio =
+            document.getElementById(
+                "bgMusic"
+            );
+
+        const musicBar =
+            document.getElementById(
+                "musicBar"
+            );
+
+        const playPause =
+            document.getElementById(
+                "playPauseBtn"
+            );
+
+        const prevButton =
+            document.getElementById(
+                "prevBtn"
+            );
+
+        const nextButton =
+            document.getElementById(
+                "nextBtn"
+            );
+
+        const select =
+            document.getElementById(
+                "trackSelect"
+            );
+
+        const volume =
+            document.getElementById(
+                "musicVolume"
+            );
+
+        const progress =
+            document.getElementById(
+                "progressSlider"
+            );
+
+        const currentTime =
+            document.getElementById(
+                "curTime"
+            );
+
+        const duration =
+            document.getElementById(
+                "durTime"
+            );
+
+        const collapse =
+            document.getElementById(
+                "collapseBtn"
+            );
+
+
+        const tracks = [
+
+            {
+                src: "music.mp3",
+                name: "Kendrik"
+            },
+
+            {
+                src: "music.mp3",
+                name: "Kendriks"
+            },
+
+            {
+                src: "music.mp3",
+                name: "Lamar"
+            }
+
+        ];
+
+
+        const MUSIC_STATE =
+            "cookiebliss_music_state";
+
+
+        function readMusicState() {
+
+            try {
+
+                return JSON.parse(
+                    localStorage.getItem(
+                        MUSIC_STATE
+                    )
+                ) || {};
+
+            }
+
+            catch {
+                return {};
+            }
+
+        }
+
+
+        function saveMusicState(data) {
+
+            const old =
+                readMusicState();
+
+            localStorage.setItem(
+                MUSIC_STATE,
+                JSON.stringify({
+                    ...old,
+                    ...data
+                })
+            );
+
+        }
+
+
+        function formatTime(seconds) {
+
+            if (
+                !Number.isFinite(seconds)
+            ) {
+                return "0:00";
+            }
+
+            const minutes =
+                Math.floor(seconds / 60);
+
+            const secondsPart =
+                Math.floor(seconds % 60)
+                .toString()
+                .padStart(2,"0");
+
+            return (
+                minutes +
+                ":" +
+                secondsPart
+            );
+
+        }
+
+
+        function updateMusicUI() {
+
+            const playing =
+                !audio.paused;
+
+            playPause.textContent =
+                playing ? "⏸" : "▶";
+
+            musicBar.classList.toggle(
+                "playing",
+                playing
+            );
+
+        }
+
+
+        function loadTrack(
+            index,
+            autoPlay = false,
+            resetTime = true
+        ) {
+
+            index =
+                (index + tracks.length)
+                % tracks.length;
+
+            select.value = index;
+
+            audio.src =
+                tracks[index].src;
+
+            if (resetTime) {
+                audio.currentTime = 0;
+            }
+
+            saveMusicState({
+                track: index,
+                time: resetTime
+                    ? 0
+                    : audio.currentTime
+            });
+
+            if (autoPlay) {
+
+                audio.play()
+                    .catch(function() {
+
+                        updateMusicUI();
+
+                    });
+
+            }
+
+        }
+
+
+        const saved =
+            readMusicState();
+
+        const startTrack =
+            Number.isInteger(saved.track)
+                ? saved.track
+                : 0;
+
+        audio.volume =
+            typeof saved.volume === "number"
+                ? saved.volume
+                : 0.5;
+
+        volume.value =
+            audio.volume;
+
+        audio.src =
+            tracks[startTrack].src;
+
+        select.value =
+            startTrack;
+
+
+        collapse.addEventListener(
+            "click",
+            function() {
+
+                musicBar.classList.toggle(
+                    "collapsed"
+                );
+
+                saveMusicState({
+
+                    collapsed:
+                        musicBar.classList.contains(
+                            "collapsed"
+                        )
+
+                });
+
+            }
+        );
+
+
+        playPause.addEventListener(
+            "click",
+            function() {
+
+                if (audio.paused) {
+
+                    audio.play()
+                        .catch(function(){});
+
+                } else {
+
+                    audio.pause();
+
+                }
+
+            }
+        );
+
+
+        prevButton.addEventListener(
+            "click",
+            function() {
+
+                const index =
+                    parseInt(
+                        select.value,
+                        10
+                    );
+
+                loadTrack(
+                    index - 1,
+                    true
+                );
+
+            }
+        );
+
+
+        nextButton.addEventListener(
+            "click",
+            function() {
+
+                const index =
+                    parseInt(
+                        select.value,
+                        10
+                    );
+
+                loadTrack(
+                    index + 1,
+                    true
+                );
+
+            }
+        );
+
+
+        select.addEventListener(
+            "change",
+            function() {
+
+                loadTrack(
+                    parseInt(
+                        select.value,
+                        10
+                    ),
+                    !audio.paused
+                );
+
+            }
+        );
+
+
+        volume.addEventListener(
+            "input",
+            function() {
+
+                audio.volume =
+                    parseFloat(
+                        volume.value
+                    );
+
+                saveMusicState({
+
+                    volume:
+                        audio.volume
+
+                });
+
+            }
+        );
+
+
+        progress.addEventListener(
+            "input",
+            function() {
+
+                audio.currentTime =
+                    parseFloat(
+                        progress.value
+                    );
+
+            }
+        );
+
+
+        audio.addEventListener(
+            "loadedmetadata",
+            function() {
+
+                duration.textContent =
+                    formatTime(
+                        audio.duration
+                    );
+
+                progress.max =
+                    audio.duration;
+
+                const state =
+                    readMusicState();
+
+                if (
+                    typeof state.time ===
+                    "number" &&
+                    state.time <
+                    audio.duration
+                ) {
+
+                    audio.currentTime =
+                        state.time;
+
+                }
+
+                updateMusicUI();
+
+            }
+        );
+
+
+        audio.addEventListener(
+            "timeupdate",
+            function() {
+
+                currentTime.textContent =
+                    formatTime(
+                        audio.currentTime
+                    );
+
+                progress.value =
+                    audio.currentTime;
+
+                saveMusicState({
+
+                    time:
+                        audio.currentTime
+
+                });
+
+            }
+        );
+
+
+        audio.addEventListener(
+            "play",
+            updateMusicUI
+        );
+
+
+        audio.addEventListener(
+            "pause",
+            function() {
+
+                updateMusicUI();
+
+                saveMusicState({
+                    playing: false,
+                    time: audio.currentTime
+                });
+
+            }
+        );
+
+
+        audio.addEventListener(
+            "play",
+            function() {
+
+                saveMusicState({
+                    playing: true
+                });
+
+            }
+        );
+
+
+        audio.addEventListener(
+            "ended",
+            function() {
+
+                const next =
+                    parseInt(
+                        select.value,
+                        10
+                    ) + 1;
+
+                loadTrack(
+                    next,
+                    true
+                );
+
+            }
+        );
+
+
+        const previousState =
+            readMusicState();
+
+        if (
+            previousState.collapsed === false
+        ) {
+
+            musicBar.classList.remove(
+                "collapsed"
+            );
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>
